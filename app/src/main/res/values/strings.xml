@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">IMDMarket</string>
+
+
+    <!---Tela Cadastro-->
+    <string name="codigo_produto">Código Produto</string>
+    <string name="nome_produto">Nome Produto</string>
+    <string name="descricao_produto">Descrição Produto</string>
+    <string name="estoque_produto">Quantidade No Estoque</string>
+    <string name="limpar_cadastro">Limpar</string>
+    <string name="Cadastrar_produto">Cadastrar</string>
+
+</resources>
