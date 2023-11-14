@@ -3,6 +3,7 @@ package com.example.primeiroapp.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem
 
 import com.example.primeiroapp.R;
 import com.example.primeiroapp.databinding.ActivityMenuBinding
@@ -20,6 +21,10 @@ public class ProdutosActivity: AppCompatActivity()  {
         binding = ActivityProdutosBinding.inflate(layoutInflater);
         setContentView(binding.root);
 
+        supportActionBar?.apply {
+            title = getString(R.string.appBarTitle)
+            setDisplayHomeAsUpEnabled(true)
+        }
 
         val nomes = arrayOf("Andrielly", "Batista", "dos Santos");
         val codigos = arrayOf(12312312, 534532, 903849234);
@@ -44,5 +49,15 @@ public class ProdutosActivity: AppCompatActivity()  {
            // TODO: DIALOG
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()  // Encerra a Activity quando a seta de voltar é clicada
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

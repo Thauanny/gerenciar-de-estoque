@@ -18,10 +18,12 @@ class ListAdapter(private val context: Activity, private val arrayList: ArrayLis
 
         val nomeProduto: TextView = view.findViewById(R.id.nomeProduto)
         val codigoProduto: TextView = view.findViewById(R.id.codigoProduto)
+        val quantidadProduto: TextView = view.findViewById(R.id.quantidadeProduto)
 
 
         nomeProduto.text = arrayList[position].nome
-        codigoProduto.text = arrayList[position].codigo.toString()
+        codigoProduto.text = "Nº: " + arrayList[position].codigo.toString()
+        quantidadProduto.text = arrayList[position].quantidade.toString()
         return view
     }
 }
