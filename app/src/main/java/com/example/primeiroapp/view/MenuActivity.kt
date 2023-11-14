@@ -1,4 +1,4 @@
-package com.example.primeiroapp
+package com.example.primeiroapp.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +17,10 @@ class MenuActivity : AppCompatActivity() {
 
         binding.cadastrarProduto.setOnClickListener{
             startActivity(Intent(this, CadastrarProdutoActivity::class.java));
+        }
+
+        binding.ListarProdutos.setOnClickListener{
+            startActivity(Intent(this, ProdutosActivity::class.java));
         }
     }
 }

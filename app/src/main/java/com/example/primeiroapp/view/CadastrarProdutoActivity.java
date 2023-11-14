@@ -1,8 +1,10 @@
-package com.example.primeiroapp;
+package com.example.primeiroapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.primeiroapp.R;
 
 public class CadastrarProdutoActivity extends AppCompatActivity {
 
