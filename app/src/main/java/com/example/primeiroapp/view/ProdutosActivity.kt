@@ -21,10 +21,6 @@ public class ProdutosActivity: AppCompatActivity()  {
         binding = ActivityProdutosBinding.inflate(layoutInflater);
         setContentView(binding.root);
 
-        supportActionBar?.apply {
-            title = getString(R.string.appBarTitle)
-            setDisplayHomeAsUpEnabled(true)
-        }
 
         val nomes = arrayOf("Andrielly", "Batista", "dos Santos");
         val codigos = arrayOf(12312312, 534532, 903849234);
@@ -51,13 +47,4 @@ public class ProdutosActivity: AppCompatActivity()  {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()  // Encerra a Activity quando a seta de voltar é clicada
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
 }

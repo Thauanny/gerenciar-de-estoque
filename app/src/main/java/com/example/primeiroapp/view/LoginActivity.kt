@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setClickListener(btn: Button) {
         btn.setOnClickListener(View.OnClickListener {
             val nome = binding.editNome.text.toString();
-            if (nome.isEmpty() ||  binding.editSenha.text.toString().isEmpty()) {
+            if (nome.isEmpty() ||  binding.editSenha.text.toString().isEmpty() || binding.editSenha.text.toString() != "admin" || nome != "admin") {
                 Toast.makeText(applicationContext, "credenciais invalidas", Toast.LENGTH_SHORT)
                     .show();
             } else {
