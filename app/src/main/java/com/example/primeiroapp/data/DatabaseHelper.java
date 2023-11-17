@@ -65,12 +65,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = null;
         if(db != null){
             cursor = db.rawQuery(query, null);
         }
-
         return cursor;
+    }
+
+    public void deletarRow(String codigo){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "codigo_produto=?", new String[]{codigo});
+        if(result == -1){
+            Toast.makeText(context, "Erro ao deletar", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Deletado com sucesso", Toast.LENGTH_SHORT).show();
+        }
     }
 }

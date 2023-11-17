@@ -74,6 +74,7 @@ public class ProdutosActivity: AppCompatActivity() {
                 produtos.add(produto)
             }
         }
+        cursor.close();
     }
 
 }
