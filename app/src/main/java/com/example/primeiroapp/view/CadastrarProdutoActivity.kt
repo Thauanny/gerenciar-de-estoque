@@ -23,13 +23,20 @@ class CadastrarProdutoActivity : AppCompatActivity() {
         var btn = findViewById<Button>(R.id.cadastrarProduto);
         setClickListener(btn);
 
+        binding.limparCadastro.setOnClickListener {
+            binding.codigoProduto.setText("");
+            binding.descricaoProduto.setText("");
+            binding.estoqueProduto.setText("");
+            binding.nomeProduto.setText("");
+        }
+
     }
 
 
     private fun setClickListener(btn: Button) {
 
         btn.setOnClickListener (View.OnClickListener {
-            val nome_produto = binding.teste.text.toString();
+            val nome_produto = binding.nomeProduto.text.toString();
             val descricao_produto = binding.descricaoProduto.text.toString();
             val cod_produto = binding.codigoProduto.text.toString();
             val quantidade_produto = binding.estoqueProduto.text.toString();

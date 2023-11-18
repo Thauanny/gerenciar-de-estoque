@@ -17,6 +17,10 @@ class DeletarActivity : AppCompatActivity() {
         binding.buttonDeletar.setOnClickListener {
             delete();
         }
+
+        binding.limparCodigoDeletar.setOnClickListener {
+            binding.inputCodigoDeletar.setText("");
+        }
     }
 
     private fun delete(){
