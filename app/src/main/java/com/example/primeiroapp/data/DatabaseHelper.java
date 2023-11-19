@@ -1,5 +1,6 @@
 package com.example.primeiroapp.data;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,9 +10,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.primeiroapp.model.ConstantesBancoDeDados;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private Context context;
     private static final String DATABASE_NAME = "IMDMarket.db";
     private static final Integer DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "produto";
@@ -20,6 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COlUMN_COD_PRODUTO = "codigo_produto";
     private static final String COlUMN_DESC_PRODUTO = "descricao_produto";
     private static final String COlUMN_QUANTIDADE = "quantidade_produto";
+    private final Context context;
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,12 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String query = "CREATE TABLE " + TABLE_NAME +
-                        " (" + COlUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COlUMN_NAME + " TEXT, " +
-                        COlUMN_DESC_PRODUTO + " TEXT, " +
-                        COlUMN_QUANTIDADE + " INTEGER, " +
-                        COlUMN_COD_PRODUTO + " INTEGER);";
+        String query = "CREATE TABLE " + TABLE_NAME + " (" + COlUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COlUMN_NAME + " TEXT, " + COlUMN_DESC_PRODUTO + " TEXT, " + COlUMN_QUANTIDADE + " INTEGER, " + COlUMN_COD_PRODUTO + " INTEGER, UNIQUE(COlUMN_COD_PRODUTO));";
 
         db.execSQL(query);
     }
@@ -45,40 +43,86 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insert(String name, String descricao, int quantidade, int cod_produto){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+    public void insert(String name, String descricao, int quantidade, int cod_produto) {
+        if (dadoJaExiste(cod_produto)) {
+            Toast.makeText(context, "Dado já inserido anteriormente", Toast.LENGTH_SHORT).show();
 
-        cv.put(COlUMN_NAME, name);
-        cv.put(COlUMN_COD_PRODUTO, cod_produto);
-        cv.put(COlUMN_DESC_PRODUTO, descricao);
-        cv.put(COlUMN_QUANTIDADE, quantidade);
-        long result = db.insert(TABLE_NAME,null, cv);
-        if(result == -1){
-            Toast.makeText(context, "Falha ao salvar dados. :(", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Sucesso ao salvar dados! :)", Toast.LENGTH_SHORT).show();
+
+        } else {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
+
+            cv.put(COlUMN_NAME, name);
+            cv.put(COlUMN_COD_PRODUTO, cod_produto);
+            cv.put(COlUMN_DESC_PRODUTO, descricao);
+            cv.put(COlUMN_QUANTIDADE, quantidade);
+            long result = db.insert(TABLE_NAME, null, cv);
+            if (result == -1) {
+                Toast.makeText(context, "Falha ao salvar dados. :(", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Sucesso ao salvar dados! :)", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
 
-    public Cursor readAllData(){
+    @SuppressLint("Range")
+    public boolean dadoJaExiste(int codigo) {
+        Cursor cursor = read();
+        Integer cod = null;
+
+        if (cursor.getCount() == 0) {
+            return false;
+
+        } else {
+            while (cursor.moveToNext()) {
+                cod = cursor.getInt(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_CODIGO));
+
+            }
+        }
+
+        return cod == codigo;
+    }
+
+
+    public Cursor read() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
-        if(db != null){
+        if (db != null) {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
     }
 
-    public void deletarRow(String codigo){
+    public void remove(String codigo) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "codigo_produto=?", new String[]{codigo});
-        if(result == -1 || result == 0){
+        if (result == -1 || result == 0) {
             Toast.makeText(context, "Produto não localizado, tente outro!", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(context, "Deletado com sucesso", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    public void update(String name, String descricao, int quantidade, int cod_produto) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        String codigo = String.valueOf(cod_produto);
+
+        cv.put(COlUMN_NAME, name);
+        cv.put(COlUMN_COD_PRODUTO, cod_produto);
+        cv.put(COlUMN_DESC_PRODUTO, descricao);
+        cv.put(COlUMN_QUANTIDADE, quantidade);
+
+        long result = db.update(TABLE_NAME, cv, "codigo_produto=?",  new String[]{codigo});
+        if(result == -1){
+            Toast.makeText(context, "Falha ao atualizar dados. :(", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Sucesso ao atualizar dados! :)", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }

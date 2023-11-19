@@ -10,6 +10,10 @@ import com.example.primeiroapp.R
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Oculta a ActionBar
+        supportActionBar?.hide()
+
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({

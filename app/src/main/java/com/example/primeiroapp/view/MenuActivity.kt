@@ -23,6 +23,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, ProdutosActivity::class.java));
         }
 
+        binding.atualizarProdutos.setOnClickListener{
+            startActivity(Intent(this, UpdateActivity::class.java));
+        }
+
         binding.deletarProduto.setOnClickListener{
             startActivity(Intent(this, DeletarActivity::class.java));
         }

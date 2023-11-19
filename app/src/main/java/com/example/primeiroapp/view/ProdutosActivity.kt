@@ -1,6 +1,5 @@
 package com.example.primeiroapp.view;
 
-import ConstantesBancoDeDados
 import android.annotation.SuppressLint
 import android.content.Context
 import android.database.Cursor
@@ -18,6 +17,7 @@ import com.example.primeiroapp.R;
 import com.example.primeiroapp.data.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityMenuBinding
 import com.example.primeiroapp.databinding.ActivityProdutosBinding
+import com.example.primeiroapp.model.ConstantesBancoDeDados
 import com.example.primeiroapp.model.ListAdapter
 import com.example.primeiroapp.model.Produto
 
@@ -80,7 +80,7 @@ public class ProdutosActivity: AppCompatActivity() {
         textNumero.text = "Número: $numero"
 
         dialogBuilder.setView(dialogView)
-            .setPositiveButton("OK", null) // Adicione um botão "OK" ou outro conforme necessário
+            .setPositiveButton("OK", null)
 
         val alertDialog = dialogBuilder.create()
         alertDialog.show()
@@ -88,7 +88,7 @@ public class ProdutosActivity: AppCompatActivity() {
 
     @SuppressLint("Range")
     private fun storeDataInArrays(){
-        val cursor  = db.readAllData();
+        val cursor  = db.read();
         if(cursor.count == 0){
             Toast.makeText(this, "Sem Registros.", Toast.LENGTH_SHORT).show();
             finish();
