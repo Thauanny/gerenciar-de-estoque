@@ -1,8 +1,14 @@
 package com.example.primeiroapp.view
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.core.content.ContextCompat
+import com.example.primeiroapp.R
 import com.example.primeiroapp.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -13,6 +19,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater);
         setContentView(binding.root);
+
 
 
         binding.cadastrarProduto.setOnClickListener{
@@ -29,6 +36,30 @@ class MenuActivity : AppCompatActivity() {
 
         binding.deletarProduto.setOnClickListener{
             startActivity(Intent(this, DeletarActivity::class.java));
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_logout, menu)
+
+        // Obter o item do menu
+        val logoutItem: MenuItem = menu!!.findItem(R.id.action_logout)
+
+        // Aplicar filtro de cor branco ao ícone
+        val whiteIcon = ContextCompat.getDrawable(this, R.drawable.ic_logout)
+        whiteIcon?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
+        logoutItem.icon = whiteIcon
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_logout -> {
+              finish();
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

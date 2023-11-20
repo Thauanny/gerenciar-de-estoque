@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
+        android:textColor="@color/purple_900"
         android:layout_marginBottom="24dp"
         android:text="@string/titleMenuScreen"
         android:textSize="24sp"

@@ -4,6 +4,15 @@
     <!--- Tela Login-->
     <string name="hintName">Digite seu ID</string>
     <string name="hintSenha">Digite sua senha</string>
+    <string name="esqueceuSenha">Esqueceu sua senha? clique aqui</string>
+    <string name="loginButton">Entrar</string>
+
+
+    <!--- Tela Cadastro Login-->
+    <string name="hintNameCadastro">Digite seu novo ID</string>
+    <string name="titleCadastroLogin">Cadastro!</string>
+    <string name="hintSenhaCadastro">Digite sua nova senha</string>
+    <string name="cadastroLoginButton">Cadastrar</string>
 
     <!---Tela Cadastro-->
     <string name="codigo_produto">Código Produto *</string>

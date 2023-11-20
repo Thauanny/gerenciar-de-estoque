@@ -49,9 +49,11 @@ class UpdateActivity : AppCompatActivity() {
                     Integer.valueOf(quantidade_produto),
                     Integer.valueOf(cod_produto)
                 );
+                finish();
 
             } catch (e: NumberFormatException) {
-                Toast.makeText(this, "Insira todas as informações", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Insira todas as informações", Toast.LENGTH_SHORT).show();
+                finish();
 
             }
         })

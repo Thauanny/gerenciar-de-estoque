@@ -48,6 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/purple_900"
                 android:text="@string/cadastrar_produto"
                 android:textSize="25dp"/>
 
@@ -121,13 +122,15 @@
                 app:endIconMode="clear_text">
 
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/descricaoProduto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:ems="10"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:gravity="top|start"
                     android:paddingLeft="16dp" />
 
 

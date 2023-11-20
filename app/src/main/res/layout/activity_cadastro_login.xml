@@ -42,7 +42,7 @@
                 android:id="@+id/nomeInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintName"
+                android:hint="@string/hintNameCadastro"
                 app:boxBackgroundColor="@color/white"
                 app:boxCornerRadiusBottomEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
@@ -68,7 +68,7 @@
                 android:id="@+id/senhaInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintSenha"
+                android:hint="@string/hintSenhaCadastro"
                 app:boxBackgroundColor="@color/white"
                 app:boxCornerRadiusBottomEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
@@ -89,28 +89,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/esqueceuSenha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="start"
-                android:layout_marginLeft="24dp"
-                android:textColor="@color/purple_900"
-                android:clickable="true"
-                android:text="@string/esqueceuSenha"
-                android:textSize="16sp" />
-
 
 
             <Button
-                android:id="@+id/button_login"
+                android:id="@+id/button_cadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="16dp"
-                android:text="@string/loginButton"
+                android:text="@string/cadastroLoginButton"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

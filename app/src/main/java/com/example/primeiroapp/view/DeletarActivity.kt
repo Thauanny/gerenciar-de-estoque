@@ -27,8 +27,10 @@ class DeletarActivity : AppCompatActivity() {
         val codigo = binding.inputCodigoDeletar.text.toString();
         if(codigo.isNotEmpty()){
             db.remove(codigo);
+            finish();
         }else{
-            Toast.makeText(this, "Insira o codigo do produto", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Insira o codigo do produto", Toast.LENGTH_SHORT).show();
+            finish();
         }
 
 

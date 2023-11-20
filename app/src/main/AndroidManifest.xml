@@ -9,11 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeiroApp">
         <activity
+            android:name=".view.CadastroLoginActivity"
+            android:label="@string/titleCadastroLogin"
+            android:parentActivityName=".view.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.UpdateActivity"
+            android:exported="false"
             android:label="@string/titleUpdateScreen"
             android:parentActivityName=".view.MenuActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".view.DeletarActivity"
             android:exported="false"
