@@ -49,6 +49,9 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Para alterar a senha vá para -> Esqueci minha senha", Toast.LENGTH_SHORT)
                         .show();
                 } else {
+                    Toast.makeText(applicationContext, "Login Feito com sucesso!", Toast.LENGTH_SHORT)
+                        .show();
+                    finish();
                     val i = Intent(this, MenuActivity::class.java);
                     startActivity(i);
                 }
@@ -58,6 +61,8 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Credenciais invalidas :( Esqueceu a sua senha?", Toast.LENGTH_SHORT)
                         .show();
                 } else {
+                    Toast.makeText(applicationContext, "Login Feito com sucesso!", Toast.LENGTH_SHORT)
+                    finish();
                     val i = Intent(this, MenuActivity::class.java);
                     startActivity(i);
 

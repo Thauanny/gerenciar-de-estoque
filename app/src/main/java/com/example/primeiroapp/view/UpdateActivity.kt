@@ -53,7 +53,6 @@ class UpdateActivity : AppCompatActivity() {
 
             } catch (e: NumberFormatException) {
                 Toast.makeText(this, "Insira todas as informações", Toast.LENGTH_SHORT).show();
-                finish();
 
             }
         })

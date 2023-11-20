@@ -30,7 +30,6 @@ class DeletarActivity : AppCompatActivity() {
             finish();
         }else{
             Toast.makeText(this, "Insira o codigo do produto", Toast.LENGTH_SHORT).show();
-            finish();
         }
 
 

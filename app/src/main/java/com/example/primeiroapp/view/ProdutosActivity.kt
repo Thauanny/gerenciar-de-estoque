@@ -91,6 +91,7 @@ public class ProdutosActivity: AppCompatActivity() {
         val cursor  = db.read();
         if(cursor.count == 0){
             Toast.makeText(this, "Sem Registros.", Toast.LENGTH_SHORT).show();
+            finish();
 
         }else{
             while (cursor.moveToNext()) {

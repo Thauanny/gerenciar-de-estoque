@@ -17,11 +17,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "IMDMarket.db";
     private static final Integer DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "produto";
-    private static final String COlUMN_NAME = "nome_produto";
-    private static final String COlUMN_ID = "_id";
-    private static final String COlUMN_COD_PRODUTO = "codigo_produto";
-    private static final String COlUMN_DESC_PRODUTO = "descricao_produto";
-    private static final String COlUMN_QUANTIDADE = "quantidade_produto";
     private final Context context;
 
     public DatabaseHelper(@Nullable Context context) {
@@ -32,7 +27,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String query = "CREATE TABLE " + TABLE_NAME + " (" + COlUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COlUMN_NAME + " TEXT, " + COlUMN_DESC_PRODUTO + " TEXT, " + COlUMN_QUANTIDADE + " INTEGER, " + COlUMN_COD_PRODUTO + " INTEGER, UNIQUE(COlUMN_COD_PRODUTO));";
+        String query = "CREATE TABLE " + TABLE_NAME +
+                " (" + ConstantesBancoDeDados.COLUNA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ConstantesBancoDeDados.COLUNA_NOME + " TEXT, " +
+                ConstantesBancoDeDados.COLUNA_DESCRICAO + " TEXT, " +
+                ConstantesBancoDeDados.COLUNA_QUANTIDADE + " INTEGER, " +
+                ConstantesBancoDeDados.COLUNA_CODIGO + " INTEGER);";
+
 
         db.execSQL(query);
     }
@@ -52,10 +53,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
 
-            cv.put(COlUMN_NAME, name);
-            cv.put(COlUMN_COD_PRODUTO, cod_produto);
-            cv.put(COlUMN_DESC_PRODUTO, descricao);
-            cv.put(COlUMN_QUANTIDADE, quantidade);
+            cv.put( ConstantesBancoDeDados.COLUNA_NOME, name);
+            cv.put( ConstantesBancoDeDados.COLUNA_CODIGO, cod_produto);
+            cv.put( ConstantesBancoDeDados.COLUNA_DESCRICAO, descricao);
+            cv.put( ConstantesBancoDeDados.COLUNA_QUANTIDADE, quantidade);
+
             long result = db.insert(TABLE_NAME, null, cv);
             if (result == -1) {
                 Toast.makeText(context, "Falha ao salvar dados. :(", Toast.LENGTH_SHORT).show();
@@ -111,10 +113,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         String codigo = String.valueOf(cod_produto);
 
-        cv.put(COlUMN_NAME, name);
-        cv.put(COlUMN_COD_PRODUTO, cod_produto);
-        cv.put(COlUMN_DESC_PRODUTO, descricao);
-        cv.put(COlUMN_QUANTIDADE, quantidade);
+        cv.put( ConstantesBancoDeDados.COLUNA_NOME, name);
+        cv.put( ConstantesBancoDeDados.COLUNA_CODIGO, cod_produto);
+        cv.put( ConstantesBancoDeDados.COLUNA_DESCRICAO, descricao);
+        cv.put( ConstantesBancoDeDados.COLUNA_QUANTIDADE, quantidade);
 
         long result = db.update(TABLE_NAME, cv, "codigo_produto=?",  new String[]{codigo});
         if(result == -1){
