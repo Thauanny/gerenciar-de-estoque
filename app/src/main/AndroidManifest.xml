@@ -9,11 +9,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeiroApp">
         <activity
-            android:name=".view.ProdutosActivity"
+            android:name=".view.UpdateActivity"
+            android:label="@string/titleUpdateScreen"
+            android:parentActivityName=".view.MenuActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
+            android:name=".view.DeletarActivity"
+            android:exported="false"
+            android:label="@string/buttonDeletar"
+            android:parentActivityName=".view.MenuActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.ProdutosActivity"
+            android:exported="false"
+            android:label="@string/appBarTitleProdutos"
+            android:parentActivityName=".view.MenuActivity" />
+        <activity
             android:name=".view.CadastrarProdutoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/appBarTitleCadastro"
+            android:parentActivityName=".view.MenuActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".view.SplashScreenActivity"
             android:exported="true">
@@ -28,7 +45,8 @@
             android:exported="false" />
         <activity
             android:name=".view.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

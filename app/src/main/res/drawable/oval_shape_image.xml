@@ -1,8 +1,16 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <size
-        android:width="50dp"
-        android:height="50dp"
-    />
-    <solid android:color="@color/purple_500"/> <!-- Cor de fundo vermelho -->
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <stroke
+        android:width="10dp"
+        android:color="@color/purple_700"/>
+
+    <solid android:color="@color/white"/>
+
+    <padding
+        android:left="2dp"
+        android:right="2dp"
+        android:bottom="2dp"
+        android:top="2dp" />
+
+    <corners android:radius="450dp" />
 </shape>

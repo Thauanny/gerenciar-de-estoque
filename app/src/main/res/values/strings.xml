@@ -1,13 +1,42 @@
 <resources>
     <string name="app_name">IMDMarket</string>
 
+    <!--- Tela Login-->
+    <string name="hintName">Digite seu ID</string>
+    <string name="hintSenha">Digite sua senha</string>
 
     <!---Tela Cadastro-->
-    <string name="codigo_produto">Código Produto</string>
-    <string name="nome_produto">Nome Produto</string>
-    <string name="descricao_produto">Descrição Produto</string>
-    <string name="estoque_produto">Quantidade No Estoque</string>
+    <string name="codigo_produto">Código Produto *</string>
+    <string name="nome_produto">Nome Produto *</string>
+    <string name="descricao_produto">Descrição Produto *</string>
+    <string name="estoque_produto">Quantidade No Estoque *</string>
     <string name="limpar_cadastro">Limpar</string>
-    <string name="Cadastrar_produto">Cadastrar</string>
+    <string name="cadastrar_produto">Cadastrar</string>
+    <string name="appBarTitleCadastro">Cadastrar Produtos</string>
+
+    <!--- Tela Menu Produtos-->
+    <string name="buttonCadastrar">Cadastrar Produtos</string>
+    <string name="buttonListar">Listar Produtos</string>
+    <string name="buttonDeletar">Deletar Produto</string>
+    <string name="titleMenuScreen">O que deseja fazer?</string>
+    <string name="buttonUpdate">Atualizar Produto</string>
+
+    <!--- Tela Produtos-->
+    <string name="appBarTitleProdutos">Produtos</string>
+    <string name="title">Todos os itens cadastrados:</string>
+
+
+    <!--- Tela Deletar Produtos-->
+    <string name="titleDeletarScreen">Deletar Produto</string>
+    <string name="inputLabel">Código produto:</string>
+    <string name="buttonDeletarLabel">Deletar</string>
+    <string name="buttonLimparLabel">Limpar</string>
+
+    <!--- Tela Update Produtos-->
+    <string name="titleUpdateScreen">Atualizar</string>
+
+
+    <!--- DatabaseHelper-->
+    <string name="exists">Dado já inserido anteriormente</string>
 
 </resources>
