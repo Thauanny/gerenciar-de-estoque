@@ -32,7 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ConstantesBancoDeDados.COLUNA_NOME + " TEXT, " +
                 ConstantesBancoDeDados.COLUNA_DESCRICAO + " TEXT, " +
                 ConstantesBancoDeDados.COLUNA_QUANTIDADE + " INTEGER, " +
-                ConstantesBancoDeDados.COLUNA_CODIGO + " INTEGER);";
+                ConstantesBancoDeDados.COLUNA_CODIGO + " INTEGER, " +
+                ConstantesBancoDeDados.NOTIFICAR + " INTEGER);";
 
 
         db.execSQL(query);
@@ -44,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insert(String name, String descricao, int quantidade, int cod_produto) {
+    public void insert(String name, String descricao, int quantidade, int cod_produto, int notificar) {
         if (dadoJaExiste(cod_produto)) {
             Toast.makeText(context, "Dado já inserido anteriormente", Toast.LENGTH_SHORT).show();
 
@@ -57,8 +58,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cv.put( ConstantesBancoDeDados.COLUNA_CODIGO, cod_produto);
             cv.put( ConstantesBancoDeDados.COLUNA_DESCRICAO, descricao);
             cv.put( ConstantesBancoDeDados.COLUNA_QUANTIDADE, quantidade);
+            cv.put( ConstantesBancoDeDados.NOTIFICAR, notificar);
 
-            long result = db.insert(TABLE_NAME, null, cv);
+
+            long result =  db.insert(TABLE_NAME, null, cv);
+
             if (result == -1) {
                 Toast.makeText(context, "Falha ao salvar dados. :(", Toast.LENGTH_SHORT).show();
             } else {
@@ -108,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void update(String name, String descricao, int quantidade, int cod_produto) {
+    public void update(String name, String descricao, int quantidade, int cod_produto, int notificar) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         String codigo = String.valueOf(cod_produto);
@@ -117,6 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put( ConstantesBancoDeDados.COLUNA_CODIGO, cod_produto);
         cv.put( ConstantesBancoDeDados.COLUNA_DESCRICAO, descricao);
         cv.put( ConstantesBancoDeDados.COLUNA_QUANTIDADE, quantidade);
+        cv.put( ConstantesBancoDeDados.NOTIFICAR, notificar);
 
         long result = db.update(TABLE_NAME, cv, "codigo_produto=?",  new String[]{codigo});
         if(result == -1){

@@ -9,9 +9,11 @@ import com.example.primeiroapp.R
 import com.example.primeiroapp.data.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityCadastrarProdutoBinding
 import com.example.primeiroapp.databinding.ActivityUpdateBinding
+import com.google.android.material.checkbox.MaterialCheckBox
 
 class UpdateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUpdateBinding
+    var notificar = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,14 @@ class UpdateActivity : AppCompatActivity() {
             val descricao_produto = binding.descricaoProduto.text.toString();
             val cod_produto = binding.codigoProduto.text.toString();
             val quantidade_produto = binding.estoqueProduto.text.toString();
+            val materialCheckBox = findViewById<MaterialCheckBox>(R.id.atualizar_notificar_produto)
+            materialCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+                if (isChecked) {
+                    notificar = 1;
+                } else {
+                    notificar = 0;
+                }
+            }
 
 
             try {
@@ -47,7 +57,8 @@ class UpdateActivity : AppCompatActivity() {
                     nome_produto,
                     descricao_produto,
                     Integer.valueOf(quantidade_produto),
-                    Integer.valueOf(cod_produto)
+                    Integer.valueOf(cod_produto),
+                    notificar
                 );
                 finish();
 

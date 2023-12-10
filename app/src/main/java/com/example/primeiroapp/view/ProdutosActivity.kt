@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view;
+package com.example.primeiroapp.view
 
 import RecyclerItemClickListener
 import android.annotation.SuppressLint
@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.primeiroapp.R
 import com.example.primeiroapp.data.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityProdutosBinding
@@ -84,25 +83,24 @@ class ProdutosActivity : AppCompatActivity() {
         descricao: String,
         numero: String
     ) {
-        val dialogBuilder = AlertDialog.Builder(context)
         val inflater = LayoutInflater.from(context)
-        val dialogView = inflater.inflate(R.layout.dialog_produto, null)
+        val cardView = inflater.inflate(R.layout.dialog_produto, null)
 
-        val textNome = dialogView.findViewById<TextView>(R.id.textNome)
-        val textQuantidade = dialogView.findViewById<TextView>(R.id.textQuantidade)
-        val textDescricao = dialogView.findViewById<TextView>(R.id.textDescricao)
-        val textNumero = dialogView.findViewById<TextView>(R.id.textNumero)
+        val textNome = cardView.findViewById<TextView>(R.id.textNome)
+        val textQuantidade = cardView.findViewById<TextView>(R.id.textQuantidade)
+        val textDescricao = cardView.findViewById<TextView>(R.id.textDescricao)
+        val textNumero = cardView.findViewById<TextView>(R.id.textNumero)
 
         textNome.text = "Nome: $nome"
         textQuantidade.text = "Quantidade: $quantidade"
         textDescricao.text = "Descrição: $descricao"
         textNumero.text = "Número: $numero"
 
-        dialogBuilder.setView(dialogView)
+        // Criar e exibir AlertDialog
+        AlertDialog.Builder(context)
+            .setView(cardView)
             .setPositiveButton("OK", null)
-
-        val alertDialog = dialogBuilder.create()
-        alertDialog.show()
+            .show()
     }
 
     @SuppressLint("Range")
@@ -114,11 +112,13 @@ class ProdutosActivity : AppCompatActivity() {
 
         } else {
             while (cursor.moveToNext()) {
-                val nome = cursor.getString(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_NOME))
+                val nome =
+                    cursor.getString(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_NOME))
                 val desc =
                     cursor.getString(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_DESCRICAO))
                 val cod = cursor.getInt(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_CODIGO))
-                val quant = cursor.getInt(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_QUANTIDADE))
+                val quant =
+                    cursor.getInt(cursor.getColumnIndex(ConstantesBancoDeDados.COLUNA_QUANTIDADE))
 
                 nomes.add(nome)
                 descricaoes.add(desc)
