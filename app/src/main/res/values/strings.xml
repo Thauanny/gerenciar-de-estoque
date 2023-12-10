@@ -22,6 +22,7 @@
     <string name="limpar_cadastro">Limpar</string>
     <string name="cadastrar_produto">Cadastrar</string>
     <string name="appBarTitleCadastro">Cadastrar Produtos</string>
+    <string name="notificar_produto">Notificar quando produto estiver acabando</string>
 
     <!--- Tela Menu Produtos-->
     <string name="buttonCadastrar">Cadastrar Produtos</string>

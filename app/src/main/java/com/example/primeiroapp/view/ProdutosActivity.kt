@@ -41,16 +41,12 @@ class ProdutosActivity : AppCompatActivity() {
 
         storeDataInArrays()
 
-        // Configurando o LinearLayoutManager (ou outro LayoutManager de sua escolha)
         val layoutManager = LinearLayoutManager(this)
         binding.produtos.layoutManager = layoutManager
 
-        // Configurar o adaptador da RecyclerView
         val adapter = ListAdapter(produtos)
         binding.produtos.adapter = adapter
 
-        // Mantenha sua lógica de clique
-        // Mantenha sua lógica de clique
         binding.produtos.addOnItemTouchListener(
             RecyclerItemClickListener(
                 this,
