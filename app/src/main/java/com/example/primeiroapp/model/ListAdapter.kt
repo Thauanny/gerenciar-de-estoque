@@ -1,29 +1,37 @@
 package com.example.primeiroapp.model
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.primeiroapp.R
 
-class ListAdapter(private val context: Activity, private val arrayList: ArrayList<Produto>) :
-    ArrayAdapter<Produto>(context, R.layout.list_item, arrayList) {
+class ListAdapter(private val produtos: List<Produto>) : RecyclerView.Adapter<ListAdapter.ProdutoViewHolder>() {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        return ProdutoViewHolder(view)
+    }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val inflater: LayoutInflater = LayoutInflater.from(context)
-        val view: View = inflater.inflate(R.layout.list_item, null);
+    override fun onBindViewHolder(holder: ProdutoViewHolder, position: Int) {
+        holder.bind(produtos[position])
+    }
 
-        val nomeProduto: TextView = view.findViewById(R.id.nomeProduto)
-        val codigoProduto: TextView = view.findViewById(R.id.codigoProduto)
-        val quantidadProduto: TextView = view.findViewById(R.id.quantidadeProduto)
+    override fun getItemCount(): Int {
+        return produtos.size
+    }
 
+    // Substitua com os tipos de dados reais do seu item
+    class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val nomeProduto: TextView = itemView.findViewById(R.id.nomeProduto)
+        private val codigoProduto: TextView = itemView.findViewById(R.id.codigoProduto)
+        private val quantidadeProduto: TextView = itemView.findViewById(R.id.quantidadeProduto)
 
-        nomeProduto.text = arrayList[position].nome
-        codigoProduto.text = "Nº: " + arrayList[position].codigo.toString()
-        quantidadProduto.text = arrayList[position].quantidade.toString()
-        return view
+        fun bind(produto: Produto) {
+            nomeProduto.text = produto.nome
+            codigoProduto.text = "Nº: ${produto.codigo}"
+            quantidadeProduto.text = produto.quantidade.toString()
+        }
     }
 }

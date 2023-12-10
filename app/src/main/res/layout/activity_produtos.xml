@@ -20,13 +20,11 @@
 
     </TextView>
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/produtos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="58dp"
-        tools:listitem="@layout/list_item">
-
-    </ListView>
+        tools:listitem="@layout/list_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
