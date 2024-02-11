@@ -9,35 +9,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeiroApp">
         <activity
-            android:name=".view.CadastroLoginActivity"
+            android:name=".presenter.view.CadastroLoginActivity"
             android:label="@string/titleCadastroLogin"
-            android:parentActivityName=".view.LoginActivity"
+            android:parentActivityName=".presenter.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.UpdateActivity"
+            android:name=".presenter.view.UpdateActivity"
             android:exported="false"
             android:label="@string/titleUpdateScreen"
-            android:parentActivityName=".view.MenuActivity"
+            android:parentActivityName=".presenter.view.MenuActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".view.DeletarActivity"
+            android:name=".presenter.view.DeletarActivity"
             android:exported="false"
             android:label="@string/buttonDeletar"
-            android:parentActivityName=".view.MenuActivity"
+            android:parentActivityName=".presenter.view.MenuActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".view.ProdutosActivity"
+            android:name=".presenter.view.ProdutosActivity"
             android:exported="false"
             android:label="@string/appBarTitleProdutos"
-            android:parentActivityName=".view.MenuActivity" />
+            android:parentActivityName=".presenter.view.MenuActivity" />
         <activity
-            android:name=".view.CadastrarProdutoActivity"
+            android:name=".presenter.view.CadastrarProdutoActivity"
             android:exported="false"
             android:label="@string/appBarTitleCadastro"
-            android:parentActivityName=".view.MenuActivity"
+            android:parentActivityName=".presenter.view.MenuActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".view.SplashScreenActivity"
+            android:name=".presenter.view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,10 +46,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MenuActivity"
+            android:name=".presenter.view.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".presenter.view.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

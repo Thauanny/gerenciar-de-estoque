@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import android.content.Context
 import android.content.Intent
@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.primeiroapp.R
 import com.example.primeiroapp.databinding.ActivityCadastroLoginBinding
-import com.example.primeiroapp.databinding.ActivityLoginBinding
 
 class CadastroLoginActivity : AppCompatActivity() {
 

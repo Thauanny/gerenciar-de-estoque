@@ -1,4 +1,4 @@
-package com.example.primeiroapp.model
+package com.example.primeiroapp.data.model
 object ConstantesBancoDeDados {
         const val COLUNA_NOME = "nome_produto"
         const val COLUNA_ID = "_id"

@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,7 +9,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.primeiroapp.R
-import com.example.primeiroapp.data.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {

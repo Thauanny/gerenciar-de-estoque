@@ -1,9 +1,9 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.primeiroapp.data.DatabaseHelper
+import com.example.primeiroapp.data.database.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityDeletarBinding
 
 class DeletarActivity : AppCompatActivity() {

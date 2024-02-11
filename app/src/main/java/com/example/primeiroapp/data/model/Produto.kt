@@ -1,4 +1,4 @@
-package com.example.primeiroapp.model
+package com.example.primeiroapp.data.model
 
 data class Produto(
     val nome: String,

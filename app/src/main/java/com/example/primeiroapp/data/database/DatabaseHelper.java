@@ -1,4 +1,4 @@
-package com.example.primeiroapp.data;
+package com.example.primeiroapp.data.database;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.primeiroapp.model.ConstantesBancoDeDados;
+import com.example.primeiroapp.data.model.ConstantesBancoDeDados;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 

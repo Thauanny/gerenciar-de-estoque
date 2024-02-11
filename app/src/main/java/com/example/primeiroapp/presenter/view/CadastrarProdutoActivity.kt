@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.primeiroapp.R
-import com.example.primeiroapp.data.DatabaseHelper
+import com.example.primeiroapp.data.database.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityCadastrarProdutoBinding
 import com.google.android.material.checkbox.MaterialCheckBox
 
@@ -52,7 +52,8 @@ class CadastrarProdutoActivity : AppCompatActivity() {
 
 
             try {
-                val db = DatabaseHelper(this)
+                val db =
+                    DatabaseHelper(this)
                 db.insert(
                     nome_produto,
                     descricao_produto,

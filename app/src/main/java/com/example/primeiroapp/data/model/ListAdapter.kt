@@ -1,4 +1,4 @@
-package com.example.primeiroapp.model
+package com.example.primeiroapp.data.model
 
 import android.view.LayoutInflater
 import android.view.View

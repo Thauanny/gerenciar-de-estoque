@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import RecyclerItemClickListener
 import android.annotation.SuppressLint
@@ -12,11 +12,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.primeiroapp.R
-import com.example.primeiroapp.data.DatabaseHelper
+import com.example.primeiroapp.data.database.DatabaseHelper
 import com.example.primeiroapp.databinding.ActivityProdutosBinding
-import com.example.primeiroapp.model.ConstantesBancoDeDados
-import com.example.primeiroapp.model.ListAdapter
-import com.example.primeiroapp.model.Produto
+import com.example.primeiroapp.data.model.ConstantesBancoDeDados
+import com.example.primeiroapp.data.model.ListAdapter
+import com.example.primeiroapp.data.model.Produto
 
 class ProdutosActivity : AppCompatActivity() {
 

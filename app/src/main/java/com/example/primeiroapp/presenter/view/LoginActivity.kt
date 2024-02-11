@@ -1,4 +1,4 @@
-package com.example.primeiroapp.view
+package com.example.primeiroapp.presenter.view
 
 import android.content.Context
 import android.content.Intent
